@@ -1,0 +1,32 @@
+# A project demonstrating Project Reactor backpressure behaivior using a Grafana/Prometheus
+
+
+= Using Docker
+
+First create the image for the app using. This uses the https://github.com/GoogleContainerTools/jib[Jib gradle plugin]: 
+
+[source, bash]
+----
+./gradlew jibDockerBuild
+----
+
+and then
+
+[source, bash]
+----
+docker-compose up
+----
+
+A helper UI to send sample requests to the app will be available at http://<dockerip>:8080/index.html
+
+Graphana at http://<dockerip>:3000
+
+
+== Trigger a Producer and Consumer
+
+=== Scenario 1: Producer and Consumer in sync.
+http "http://localhost:8080/scenario1?producerRate=100&consumerRate=10&count=300"
+
+
+=== Scenario 2: Producer and Consumer in different threads
+http "http://localhost:8080/scenario2?producerRate=100&consumerRate=10&count=300&prefetch=256"

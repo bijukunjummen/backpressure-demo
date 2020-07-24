@@ -1,0 +1,24 @@
+---
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"   
+  metrics:
+    distribution:
+      percentiles-histogram[http.server.requests]: true 
+      sla[http.server.requests]: 1s, 500ms
+spring:
+  sleuth:
+    sampler:
+      probability: 1.0
