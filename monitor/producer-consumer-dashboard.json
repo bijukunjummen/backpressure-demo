@@ -79,7 +79,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(producer_total[30s])",
+                    "expr": "rate(producer_total[10s])",
                     "hide": false,
                     "interval": "",
                     "legendFormat": "Production Rate",
@@ -177,7 +177,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(consumer_total[30s])",
+                    "expr": "rate(consumer_total[10s])",
                     "hide": false,
                     "instant": false,
                     "interval": "",
@@ -227,6 +227,113 @@
                 "align": false,
                 "alignLevel": null
             }
+        },
+        {
+            "aliasColors": {
+                "Consumption Rate": "red",
+                "{application=\"backpressure-demo\", instance=\"backpressure-demo:8080\", job=\"apps\"}": "red"
+            },
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "prometheus",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 9,
+                "w": 24,
+                "x": 0,
+                "y": 17
+            },
+            "hiddenSeries": false,
+            "id": 149,
+            "legend": {
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 4,
+            "nullPointMode": "null",
+            "percentage": false,
+            "pluginVersion": "7.1.0",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "rate(producer_total[10s])",
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "Production Rate",
+                    "refId": "A"
+                },
+                {
+                    "expr": "rate(consumer_total[10s])",
+                    "hide": false,
+                    "instant": false,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "Consumption Rate",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Producers & Consumers",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "$$hashKey": "object:383",
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "$$hashKey": "object:384",
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
         }
     ],
     "refresh": "5s",
@@ -237,7 +344,7 @@
         "list": []
     },
     "time": {
-        "from": "now-5m",
+        "from": "now-15m",
         "to": "now"
     },
     "timepicker": {
