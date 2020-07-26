@@ -68,7 +68,7 @@ jib {
         image = 'gcr.io/distroless/java:11'
     }
     container {
-        mainClass="sample.meter.SampleServiceAppKt"
+        mainClass="sample.meter.ApplicationKt"
     }
 
     to {

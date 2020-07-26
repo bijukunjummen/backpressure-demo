@@ -7,7 +7,7 @@ import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 
 @SpringBootApplication
-class SampleServiceApp {
+class Application {
 
     @Bean
     fun commonTags(): MeterRegistryCustomizer<MeterRegistry> {
@@ -20,5 +20,5 @@ class SampleServiceApp {
 }
 
 fun main() {
-    runApplication<SampleServiceApp>()
+    runApplication<Application>()
 }
