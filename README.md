@@ -14,8 +14,6 @@ and then
 docker-compose up
 ```
 
-A helper UI to send sample requests to the app will be available at http://<dockerip>:8080/index.html
-
 Graphana at http://<dockerip>:3000
 
 
