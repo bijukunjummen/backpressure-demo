@@ -276,27 +276,39 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(producer_total[10s])",
+                    "expr": "rate(consumer_total[10s])",
+                    "hide": true,
+                    "instant": false,
                     "interval": "",
-                    "intervalFactor": 1,
-                    "legendFormat": "Production Rate",
+                    "legendFormat": "λ",
+                    "refId": "B"
+                },
+                {
+                    "expr": "lvalue",
+                    "hide": false,
+                    "interval": "",
+                    "legendFormat": "L",
                     "refId": "A"
                 },
                 {
-                    "expr": "rate(consumer_total[10s])",
-                    "hide": false,
-                    "instant": false,
+                    "expr": "message_seconds_sum/message_seconds_count",
+                    "hide": true,
                     "interval": "",
-                    "intervalFactor": 1,
-                    "legendFormat": "Consumption Rate",
-                    "refId": "B"
+                    "legendFormat": "T",
+                    "refId": "C"
+                },
+                {
+                    "expr": "rate(consumer_total[10s]) * (message_seconds_sum/message_seconds_count)",
+                    "interval": "",
+                    "legendFormat": "Calculated L",
+                    "refId": "D"
                 }
             ],
             "thresholds": [],
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Producers & Consumers",
+            "title": "Little's Law",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
