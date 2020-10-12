@@ -291,14 +291,14 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "message_seconds_sum/message_seconds_count",
+                    "expr": "rate(message_seconds_sum[10s])/rate(message_seconds_count[10s])",
                     "hide": true,
                     "interval": "",
                     "legendFormat": "T",
                     "refId": "C"
                 },
                 {
-                    "expr": "rate(consumer_total[10s]) * (message_seconds_sum/message_seconds_count)",
+                    "expr": "rate(consumer_total[10s]) * rate(message_seconds_sum[10s])/rate(message_seconds_count[10s])",
                     "interval": "",
                     "legendFormat": "Calculated L",
                     "refId": "D"
@@ -388,5 +388,5 @@
     "timezone": "browser",
     "title": "Producer-Consumer-Dashboard",
     "uid": "1a",
-    "version": 1
+    "version": 3
 }
